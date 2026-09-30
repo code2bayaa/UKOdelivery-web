@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* ---- Design tokens from docs/wireframe.pen (00 · Design System) ---- */
+@theme {
+  --color-primary: #1b2a6b;
+  --color-primary-600: #2f44a8;
+  --color-primary-300: #93a0dc;
+  --color-primary-050: #edf0fb;
+  --color-secondary: #ff7a45;
+  --color-secondary-600: #e85f28;
+  --color-secondary-050: #fff1ea;
+  --color-bg: #ffffff;
+  --color-surface: #f6f7fc;
+  --color-surface-2: #edeff7;
+  --color-border: #e1e5f0;
+  --color-border-strong: #c6ccde;
+  --color-ink: #131629;
+  --color-ink-2: #5c6280;
+  --color-muted: #8a90a8;
+  --color-success: #17916a;
+  --color-success-050: #e6f5ef;
+  --color-warning: #c98a00;
+  --color-warning-050: #fff6e0;
+  --color-danger: #d23b3b;
+  --color-danger-050: #fdecec;
+
+  --font-head: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-card: 0 1px 2px rgba(19, 22, 41, 0.04), 0 8px 24px -12px rgba(27, 42, 107, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+a { text-decoration: none; }
+button { font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+
+/* Layout helpers used across screens (80% / 1200px content column) */
+.container-x { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 16px; }
+@media (min-width: 1024px) { .container-x { padding-inline: 24px; } }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Gradient surfaces from the wireframe */
+.grad-hero { background: linear-gradient(120deg, #1b2a6b 0%, #2f44a8 60%, #3d55c8 100%); }
+.grad-soft { background: linear-gradient(135deg, #edf0fb 0%, #fff1ea 100%); }
+.grad-brand { background: linear-gradient(135deg, #1b2a6b, #ff7a45); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 1s linear infinite; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.fade-up { animation: fade-up .25s ease-out both; }
